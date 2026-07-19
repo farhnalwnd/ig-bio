@@ -21,24 +21,25 @@
       theme: {
         extend: {
           colors: {
-            'brutal-cream': '#F4F4F0',
-            'brutal-black': '#09090B',
-            'brutal-yellow': '#DFE104',
-            'brutal-blue': '#2196F3',
-            'brutal-red': '#FF5252',
-            'brutal-green': '#00FF41',
-            'brutal-purple': '#B388FF',
-            'brutal-orange': '#FFAB40',
-            'brutal-pink': '#FF4081',
+            'brutal-cream': '#F0F4F8',
+            'brutal-black': '#1E293B',
+            'brutal-yellow': '#FACC15',
+            'brutal-blue': '#3B82F6',
+            'brutal-red': '#EF4444',
+            'brutal-green': '#10B981',
+            'brutal-purple': '#A855F7',
+            'brutal-orange': '#F97316',
+            'brutal-pink': '#EC4899',
           },
           fontFamily: {
             heading: ['Archivo', 'sans-serif'],
             sans: ['Space Grotesk', 'sans-serif'],
           },
-          boxShadow: {
-            'brutal': '4px 4px 0px 0px #09090B',
-            'brutal-lg': '6px 6px 0px 0px #09090B',
-            'brutal-xl': '8px 8px 0px 0px #09090B',
+          borderRadius: {
+            'clay-sm': '16px',
+            'clay': '24px',
+            'clay-lg': '32px',
+            'clay-full': '9999px',
           }
         }
       }
@@ -46,47 +47,84 @@
   </script>
 
   <style>
-    /* Custom Cursor */
-    html, body, a, button, input {
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23DFE104' stroke='%2309090B' stroke-width='2' stroke-linejoin='miter'><polygon points='0,0 0,20 6,14 11,23 14,21 9,13 18,13'/></svg>"), auto !important;
+    /* Claymorphism Custom Shadows & Styles */
+    .clay-card {
+      border-radius: 28px;
+      box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.08),
+        -4px -4px 10px rgba(255, 255, 255, 0.35),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+        inset -3px -3px 6px rgba(0, 0, 0, 0.08);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    
-    a:hover, button:hover {
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%2300FF41' stroke='%2309090B' stroke-width='2' stroke-linejoin='miter'><polygon points='0,0 0,20 6,14 11,23 14,21 9,13 18,13'/></svg>"), pointer !important;
+
+    .clay-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 
+        12px 14px 20px rgba(0, 0, 0, 0.12),
+        -6px -6px 12px rgba(255, 255, 255, 0.45),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.4),
+        inset -4px -4px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .clay-card:active {
+      transform: translateY(1px) scale(0.99);
+      box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.06),
+        -3px -3px 6px rgba(255, 255, 255, 0.3),
+        inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.3);
+    }
+
+    .clay-pill {
+      border-radius: 9999px;
+      box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.06),
+        -2px -2px 6px rgba(255, 255, 255, 0.35),
+        inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.3),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.06);
+    }
+
+    .clay-badge {
+      border-radius: 16px;
+      box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.06),
+        -2px -2px 5px rgba(255, 255, 255, 0.35),
+        inset 1.5px 1.5px 3px rgba(255, 255, 255, 0.3),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.06);
     }
 
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 14px;
-      height: 14px;
+      width: 12px;
     }
     ::-webkit-scrollbar-track {
-      background: #09090B;
-      border-left: 3px solid #09090B;
+      background: #F0F4F8;
     }
     ::-webkit-scrollbar-thumb {
-      background: #DFE104;
-      border: 3px solid #09090B;
+      background: #CBD5E1;
+      border-radius: 9999px;
+      border: 3px solid #F0F4F8;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #FF5252;
+      background: #94A3B8;
     }
 
-    /* Background Patterns */
-    .brutal-grid-pattern {
-      background-image: linear-gradient(to right, rgba(9, 9, 11, 0.15) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(9, 9, 11, 0.15) 1px, transparent 1px);
+    /* Background Soft Pattern */
+    .clay-bg-pattern {
+      background-color: #F0F4F8;
+      background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
       background-size: 24px 24px;
     }
   </style>
 </head>
-<body class="bg-brutal-cream text-brutal-black font-sans min-h-screen brutal-grid-pattern selection:bg-brutal-yellow selection:text-brutal-black antialiased p-4 md:p-8">
+<body class="clay-bg-pattern text-brutal-black font-sans min-h-screen selection:bg-brutal-yellow selection:text-brutal-black antialiased p-4 md:p-8">
 
   <!-- Ticker Banner Header -->
-  <div class="max-w-3xl mx-auto mb-6 bg-brutal-yellow border-4 border-brutal-black shadow-brutal p-2 overflow-hidden flex items-center gap-4">
-    <div class="bg-brutal-black text-brutal-yellow px-2 py-1 font-heading text-xs uppercase tracking-wider font-bold shrink-0">STATUS</div>
+  <div class="max-w-3xl mx-auto mb-6 bg-brutal-yellow clay-card p-3 flex items-center gap-3">
+    <div class="bg-brutal-black text-brutal-yellow px-3 py-1 font-heading text-xs uppercase tracking-wider font-bold rounded-full shrink-0 shadow-sm">STATUS</div>
     <div class="overflow-hidden whitespace-nowrap w-full">
-      <div class="inline-block animate-marquee font-bold text-sm uppercase tracking-wide">
+      <div class="inline-block animate-marquee font-bold text-sm uppercase tracking-wide text-brutal-black">
         🚀 OPEN FOR FREELANCE &amp; FULL-TIME ROLES &bull; 💻 FULL-STACK DEVELOPER &amp; AI ENGINEER &bull; ⚡ HIGH PERFORMANCE WEB APPS &bull; 🎯 AVAILABLE NOW
       </div>
     </div>
@@ -95,52 +133,52 @@
   <main class="max-w-3xl mx-auto space-y-6">
 
     <!-- Profile Hero Card -->
-    <section class="bg-white border-4 border-brutal-black shadow-brutal-xl p-6 md:p-8 relative">
+    <section class="bg-white clay-card p-6 md:p-8 relative">
       <!-- Decorative Tag -->
-      <div class="absolute -top-4 -right-2 bg-brutal-pink text-white font-heading font-black px-4 py-1 border-4 border-brutal-black uppercase text-xs tracking-widest rotate-2 shadow-brutal z-10">
+      <div class="absolute -top-3 -right-2 bg-brutal-pink text-white font-heading font-black px-4 py-1.5 rounded-full uppercase text-xs tracking-widest rotate-3 clay-pill z-10">
         HI 👋
       </div>
 
       <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
         <!-- Avatar Container with OG Icon -->
         <div class="shrink-0">
-          <div class="w-28 h-28 md:w-32 md:h-32 bg-brutal-purple border-4 border-brutal-black shadow-brutal flex items-center justify-center p-2">
-            <img src="./OG-icon.svg" alt="Farhan Alwanda Logo" class="w-full h-full object-contain" />
+          <div class="w-28 h-28 md:w-32 md:h-32 bg-brutal-purple clay-card flex items-center justify-center p-3">
+            <img src="./OG-icon.svg" alt="Farhan Alwanda Logo" class="w-full h-full object-contain filter drop-shadow-md" />
           </div>
         </div>
 
         <!-- Info Header -->
         <div class="text-center md:text-left space-y-3 flex-1">
-          <div class="inline-flex items-center gap-2 bg-brutal-blue text-white px-3 py-0.5 border-2 border-brutal-black text-xs font-bold uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-brutal-green inline-block animate-ping"></span>
+          <div class="inline-flex items-center gap-2 bg-brutal-blue text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider clay-pill">
+            <span class="w-2.5 h-2.5 rounded-full bg-brutal-green inline-block animate-pulse"></span>
             Fullstack &amp; AI Engineer
           </div>
 
-          <h1 class="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight leading-none">
-            FARHAN <span class="bg-brutal-orange px-2 border-2 border-brutal-black inline-block transform -rotate-1">ALWANDA</span>
+          <h1 class="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight leading-none text-brutal-black">
+            FARHAN <span class="bg-brutal-orange text-white px-3 py-0.5 rounded-2xl inline-block transform -rotate-1 clay-badge">ALWANDA</span>
           </h1>
 
-          <div class="bg-brutal-yellow border-3 border-brutal-black shadow-brutal p-3 font-sans text-sm md:text-base font-medium text-brutal-black leading-relaxed">
+          <div class="bg-brutal-yellow/90 clay-badge p-4 font-sans text-sm md:text-base font-medium text-brutal-black leading-relaxed">
             I am passionate about designing well-structured and highly optimized applications through the integration of Artificial Intelligence with smart IoT devices. Less clutter, pure performance, and bold aesthetics.
           </div>
 
           <!-- Badges / Tags -->
           <div class="flex flex-wrap gap-2 pt-1 justify-center md:justify-start">
-            <span class="bg-brutal-pink text-white text-xs font-bold px-2 py-1 border-2 border-brutal-black shadow-brutal">#Vue.js</span>
-            <span class="bg-brutal-yellow text-brutal-black text-xs font-bold px-2 py-1 border-2 border-brutal-black shadow-brutal">#Laravel</span>
-            <span class="bg-brutal-green text-brutal-black text-xs font-bold px-2 py-1 border-2 border-brutal-black shadow-brutal">#Go</span>
-            <span class="bg-brutal-purple text-brutal-black text-xs font-bold px-2 py-1 border-2 border-brutal-black shadow-brutal">#Python / AI</span>
+            <span class="bg-brutal-pink text-white text-xs font-bold px-3 py-1 clay-pill">#Vue.js</span>
+            <span class="bg-brutal-yellow text-brutal-black text-xs font-bold px-3 py-1 clay-pill">#Laravel</span>
+            <span class="bg-brutal-green text-brutal-black text-xs font-bold px-3 py-1 clay-pill">#Go</span>
+            <span class="bg-brutal-purple text-white text-xs font-bold px-3 py-1 clay-pill">#Python / AI</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- SECTION TITLE LINK NAVIGATION -->
-    <div class="flex items-center gap-3">
-      <div class="bg-brutal-black text-brutal-yellow font-heading font-black text-lg px-4 py-1 border-4 border-brutal-black uppercase tracking-wider shadow-brutal">
+    <div class="flex items-center gap-3 pt-2">
+      <div class="bg-brutal-black text-brutal-yellow font-heading font-black text-sm px-4 py-1.5 rounded-full uppercase tracking-wider clay-pill">
         PRIMARY LINKS
       </div>
-      <div class="h-1 bg-brutal-black flex-1 border-b-2 border-brutal-black"></div>
+      <div class="h-1 bg-slate-300 flex-1 rounded-full"></div>
     </div>
 
     <!-- 3 MAIN LINK BUTTONS -->
@@ -148,24 +186,24 @@
       
       <!-- 1. PORTFOLIO BUTTON -->
       <a href="https://porto.farhanalwanda.dev" target="_blank" rel="noopener noreferrer" 
-         class="group block bg-brutal-purple text-brutal-black border-4 border-brutal-black p-4 md:p-5 shadow-brutal-lg hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-150 relative overflow-hidden">
+         class="group block bg-brutal-purple text-brutal-black clay-card p-4 md:p-5 relative overflow-hidden">
         <div class="flex items-center justify-between gap-4 relative z-10">
           <div class="flex items-center gap-4">
             <!-- Icon Box with OG-icon.svg -->
-            <div class="w-12 h-12 bg-brutal-yellow text-brutal-black border-3 border-brutal-black shadow-brutal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform p-1.5">
+            <div class="w-12 h-12 bg-brutal-yellow text-brutal-black clay-badge flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform p-2">
               <img src="./OG-icon.svg" alt="Portfolio Logo" class="w-full h-full object-contain" />
             </div>
             <div>
               <div class="flex items-center gap-2">
-                <h2 class="font-heading font-black text-xl md:text-2xl uppercase tracking-tight text-brutal-black">WEB PORTFOLIO</h2>
-                <span class="bg-brutal-pink text-white text-[10px] font-bold px-2 py-0.5 border border-brutal-black uppercase">LIVE DEMO</span>
+                <h2 class="font-heading font-black text-xl md:text-2xl uppercase tracking-tight group-hover:text-brutal-black text-white">WEB PORTFOLIO</h2>
+                <span class="bg-brutal-pink text-white text-[10px] font-bold px-2 py-0.5 clay-pill uppercase">LIVE DEMO</span>
               </div>
-              <p class="text-xs md:text-sm text-brutal-black/85 font-medium">Showcase projects, CV Matcher AI, profile data, certificates &amp; case studies</p>
+              <p class="text-xs md:text-sm text-purple-100 font-medium">Showcase projects, Jurney, profile data, certificates &amp; case studies</p>
             </div>
           </div>
-          <div class="w-10 h-10 bg-brutal-black text-white border-3 border-brutal-black shadow-brutal flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
-            <svg class="w-6 h-6 text-brutal-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          <div class="w-10 h-10 bg-brutal-black text-white clay-pill flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
+            <svg class="w-5 h-5 text-brutal-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
           </div>
         </div>
@@ -173,11 +211,11 @@
 
       <!-- 2. GITHUB BUTTON -->
       <a href="https://github.com/farhnalwnd" target="_blank" rel="noopener noreferrer" 
-         class="group block bg-brutal-black text-white border-4 border-brutal-black p-4 md:p-5 shadow-brutal-lg hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-150 relative overflow-hidden">
+         class="group block bg-brutal-black text-white clay-card p-4 md:p-5 relative overflow-hidden">
         <div class="flex items-center justify-between gap-4 relative z-10">
           <div class="flex items-center gap-4">
             <!-- Icon Box -->
-            <div class="w-12 h-12 bg-brutal-green text-brutal-black border-3 border-brutal-black shadow-brutal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <div class="w-12 h-12 bg-brutal-green text-brutal-black clay-badge flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
               </svg>
@@ -185,14 +223,14 @@
             <div>
               <div class="flex items-center gap-2">
                 <h2 class="font-heading font-black text-xl md:text-2xl uppercase tracking-tight text-white group-hover:text-brutal-green transition-colors">GITHUB REPOSITORIES</h2>
-                <span class="bg-brutal-green text-brutal-black text-[10px] font-bold px-2 py-0.5 border border-brutal-black uppercase">CODE</span>
+                <span class="bg-brutal-green text-brutal-black text-[10px] font-bold px-2 py-0.5 clay-pill uppercase">CODE</span>
               </div>
               <p class="text-xs md:text-sm text-gray-300 font-medium">Source code, project repositories &amp; open source contributions</p>
             </div>
           </div>
-          <div class="w-10 h-10 bg-brutal-green text-brutal-black border-3 border-brutal-black shadow-brutal flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          <div class="w-10 h-10 bg-brutal-green text-brutal-black clay-pill flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
           </div>
         </div>
@@ -200,12 +238,11 @@
 
       <!-- 3. LINKEDIN BUTTON -->
       <a href="https://www.linkedin.com/in/farhan-alwanda/" target="_blank" rel="noopener noreferrer" 
-         class="group block bg-brutal-blue text-white border-4 border-brutal-black p-4 md:p-5 shadow-brutal-lg hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-150 relative overflow-hidden">
-        <div class="absolute right-0 top-0 bottom-0 w-16 bg-brutal-black/10 transform skew-x-12 group-hover:translate-x-full transition-transform"></div>
+         class="group block bg-brutal-blue text-white clay-card p-4 md:p-5 relative overflow-hidden">
         <div class="flex items-center justify-between gap-4 relative z-10">
           <div class="flex items-center gap-4">
             <!-- Icon Box -->
-            <div class="w-12 h-12 bg-white text-brutal-blue border-3 border-brutal-black shadow-brutal flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <div class="w-12 h-12 bg-white text-brutal-blue clay-badge flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-0.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
               </svg>
@@ -213,14 +250,14 @@
             <div>
               <div class="flex items-center gap-2">
                 <h2 class="font-heading font-black text-xl md:text-2xl uppercase tracking-tight text-white group-hover:text-brutal-yellow transition-colors">LINKEDIN PROFILE</h2>
-                <span class="bg-brutal-yellow text-brutal-black text-[10px] font-bold px-2 py-0.5 border border-brutal-black uppercase">CAREER</span>
+                <span class="bg-brutal-yellow text-brutal-black text-[10px] font-bold px-2 py-0.5 clay-pill uppercase">CAREER</span>
               </div>
               <p class="text-xs md:text-sm text-blue-100 font-medium">Professional network, work experience &amp; recommendations</p>
             </div>
           </div>
-          <div class="w-10 h-10 bg-brutal-yellow text-brutal-black border-3 border-brutal-black shadow-brutal flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          <div class="w-10 h-10 bg-brutal-yellow text-brutal-black clay-pill flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
           </div>
         </div>
@@ -228,32 +265,32 @@
 
     </section>
 
-    <!-- HIGHLIGHT FEATURE CARDS (NEO BRUTALISM BENTO GRID) -->
-    <div class="flex items-center gap-3 pt-4">
-      <div class="bg-brutal-black text-brutal-green font-heading font-black text-lg px-4 py-1 border-4 border-brutal-black uppercase tracking-wider shadow-brutal">
+    <!-- HIGHLIGHT FEATURE CARDS -->
+    <div class="flex items-center gap-3 pt-2">
+      <div class="bg-brutal-black text-brutal-green font-heading font-black text-sm px-4 py-1.5 rounded-full uppercase tracking-wider clay-pill">
         LOOKING FOR ME?
       </div>
-      <div class="h-1 bg-brutal-black flex-1 border-b-2 border-brutal-black"></div>
+      <div class="h-1 bg-slate-300 flex-1 rounded-full"></div>
     </div>
 
     <!-- INTERACTIVE SECTION / CTA BANNER -->
-    <section class="bg-brutal-orange border-4 border-brutal-black p-6 shadow-brutal-lg text-brutal-black relative overflow-hidden">
+    <section class="bg-brutal-orange clay-card p-6 text-white relative overflow-hidden">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="space-y-1 text-center md:text-left">
-          <span class="bg-brutal-black text-brutal-orange px-2 py-0.5 text-xs font-bold uppercase">LET'S CONNECT</span>
-          <h3 class="font-heading font-black text-2xl md:text-3xl uppercase tracking-tight">HAVE A PROJECT IN MIND?</h3>
-          <p class="text-xs md:text-sm font-medium">Let's build reliable software together.</p>
+          <span class="bg-brutal-black text-brutal-orange px-3 py-1 rounded-full text-xs font-bold uppercase clay-pill inline-block">LET'S CONNECT</span>
+          <h3 class="font-heading font-black text-2xl md:text-3xl uppercase tracking-tight text-white">HAVE A PROJECT IN MIND?</h3>
+          <p class="text-xs md:text-sm font-medium text-orange-100">Let's build reliable software together.</p>
         </div>
         <a href="mailto:raja.farhan.alwanda@gmail.com" 
-           class="bg-brutal-green text-brutal-black font-heading font-black px-6 py-3 border-4 border-brutal-black shadow-brutal hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all text-sm uppercase tracking-wider shrink-0 text-center">
+           class="bg-brutal-green text-brutal-black font-heading font-black px-6 py-3 clay-pill hover:scale-105 transition-all text-sm uppercase tracking-wider shrink-0 text-center">
           SEND MESSAGE ✉️
         </a>
       </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center pt-6 pb-12 border-t-4 border-brutal-black">
-      <div class="inline-block bg-brutal-black text-white px-4 py-2 font-bold text-xs uppercase tracking-wider border-2 border-brutal-black shadow-brutal mb-2">
+    <footer class="text-center pt-6 pb-12">
+      <div class="inline-block bg-brutal-black text-white px-4 py-2 font-bold text-xs uppercase tracking-wider clay-pill mb-2">
         &copy; 2026 FARHAN ALWANDA. ALL RIGHTS RESERVED.
       </div>
     </footer>
